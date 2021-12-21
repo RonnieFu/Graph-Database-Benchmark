@@ -1,0 +1,90 @@
+Query1
+Low Degree
+MATCH (p1:Person {id:9321})-[:knows]->(p2:Person)-[:hasInterest]->(t:Tag)
+RETURN
+t.id AS tagId,
+t.name AS tagName
+0.517s
+
+Medium Degree
+MATCH (p1:Person {id:24189255821300})-[:knows]->(p2:Person)-[:hasInterest]->(t:Tag)
+RETURN
+t.id AS tagId,
+t.name AS tagName
+0.616s
+
+High Degree
+MATCH (p1:Person {id:2199023262543})-[:knows]->(p2:Person)-[:hasInterest]->(t:Tag)
+RETURN
+t.id AS tagId,
+t.name AS tagName
+0.747s
+
+
+Query2
+Low Degree
+MATCH (p1:Person {id:9321})-[:knows]->(p2:Person {gender:'male'})-[:hasInterest]->(t:Tag)
+RETURN
+t.id AS tagId,
+t.name AS tagName
+0.547s
+
+Medium Degree
+MATCH (p1:Person {id:24189255821300})-[:knows]->(p2:Person {gender:'male'})-[:hasInterest]->(t:Tag)
+RETURN
+t.id AS tagId,
+t.name AS tagName
+0.609s
+
+High Degree
+MATCH (p1:Person {id:2199023262543})-[:knows]->(p2:Person {gender:'male'})-[:hasInterest]->(t:Tag)
+RETURN
+t.id AS tagId,
+t.name AS tagName
+0.724s
+
+
+Query3
+Low Degree
+MATCH (p1:Person {id:9321})-[:knows]->(p2:Person)-[:knows]->(p3:Person)
+RETURN
+collect(p2.id),
+collect(p3.id);
+0.205s
+
+Medium Degree
+MATCH (p1:Person {id:24189255821300})-[:knows]->(p2:Person)-[:knows]->(p3:Person)
+RETURN
+collect(p2.id),
+collect(p3.id);
+0.380s
+
+High Degree
+MATCH (p1:Person {id:2199023262543})-[:knows]->(p2:Person)-[:knows]->(p3:Person)
+RETURN
+collect(p2.id),
+collect(p3.id);
+0.521s
+
+
+Query4
+Low Degree
+MATCH (p1:Person {id:9321})-[:knows]->(p2:Person {gender:'male'})-[:knows]->(p3:Person {gender:'male'})
+RETURN
+collect(p2.id),
+collect(p3.id);
+0.213s
+
+Medium Degree
+MATCH (p1:Person {id:24189255821300})-[:knows]->(p2:Person {gender:'male'})-[:knows]->(p3:Person {gender:'male'})
+RETURN
+collect(p2.id),
+collect(p3.id);
+0.331s
+
+High Degree
+MATCH (p1:Person {id:2199023262543})-[:knows]->(p2:Person {gender:'male'})-[:knows]->(p3:Person {gender:'male'})
+RETURN
+collect(p2.id),
+collect(p3.id);
+0.418s

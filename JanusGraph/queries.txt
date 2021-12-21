@@ -1,0 +1,41 @@
+# 1.High degree vertex
+# type 1 query without filter
+g.V().has('iid',"person:2199023262543").out("knows").out("hasInterest").properties().profile()
+
+# type 1 query with filter
+g.V().has('iid',"person:2199023262543").has("gender","male").out("knows").out("hasInterest").properties().profile()
+
+# type 2 query without filter
+g.V().has('iid',"person:2199023262543").union(out("knows").properties('iid'),out("knows").out("knows").properties('iid')).profile() 
+
+# type 2 query with filter
+g.V().has('iid',"person:2199023262543").union(out("knows").has("gender","male").properties('iid'),out("knows").has("gender","male").out("knows").has("gender","male").properties('iid')) 
+
+
+# middle degree vertex
+# type 1 query without filter
+g.V().has('iid',"person:24189255821300").out("knows").out("hasInterest").properties().profile() 
+
+# type 1 query with filter
+g.V().has('iid',"person:24189255821300").out("knows").has("gender","male").out("hasInterest").properties().profile()
+
+# type 2 query without filter
+g.V().has('iid',"person:24189255821300").union(out("knows").properties('iid'),out("knows").out("knows").properties('iid')).profile()  
+
+# type 2 query with filter
+g.V().has('iid',"person:24189255821300").union(out("knows").has("gender","male").properties('iid'),out("knows").has("gender","male").out("knows").has("gender","male").properties('iid')).profile()
+
+
+# 2. Low degree vertex
+# type 1 query without filter
+g.V().has('iid',"person:9321").out("knows").out("hasInterest").properties().profile()
+
+# type 1 query with filter
+g.V().has('iid',"person:9321").out("knows").has("gender","male").out("hasInterest").properties().profile()
+
+# type 2 query without filter
+g.V().has('iid',"person:9321").union(out("knows").properties('iid'),out("knows").out("knows").properties('iid')).profile()  
+
+# type 2 query with filter
+g.V().has('iid',"person:9321").union(out("knows").has("gender","male").properties('iid'),out("knows").has("gender","male").out("knows").has("gender","male").properties('iid')).profile() 
+
