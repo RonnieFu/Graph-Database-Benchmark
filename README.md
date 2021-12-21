@@ -2,6 +2,6 @@
 The useful scripts for each databases are placed under the each directory respectively, 
 which mainly contains the queries and data loading scripts.
 
-the report can be also found.
+the report can be also found here,
 
 CSCI5120-projcet-Phase2-report-FUJunchen-ZHANGWeidong-LIUXingchen.pdf
